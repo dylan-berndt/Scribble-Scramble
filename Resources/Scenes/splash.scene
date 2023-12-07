@@ -1,5 +1,5 @@
 from Crash import *
-from Resources.Scripts.UI.splashfade import SplashFade
+from Resources import SplashFade
 
 camera = GameObject(Vector2(0, 0), "camera")
 camera.addComponent(Camera())

@@ -1,8 +1,8 @@
 from Crash import *
-from Resources.Scripts.UI.background import Scroll, Swap
-from Resources.Scripts.title import Title
-from Resources.Scripts.UI.scenefade import SceneFade, transition_scene
-from Resources.Scripts.Effects.confetti import Confetti, Confetti1
+from Resources import TitleScroll, Swap
+from Resources import Title
+from Resources import SceneFade, transition_scene
+from Resources import Confetti, Confetti1
 import os
 import sys
 from steamworks import STEAMWORKS
@@ -46,7 +46,7 @@ camera.addComponent(Camera())
 
 background = GameObject(Vector2(0, 0), "background")
 background.addComponent(Rigidbody(velocity=Vector2(-0.6, -0.6)))
-background.addComponent(Scroll())
+background.addComponent(TitleScroll())
 
 b1c = Game.settings["game"]["background"]["1"]
 b2c = Game.settings["game"]["background"]["2"]

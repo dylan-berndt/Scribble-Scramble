@@ -1,7 +1,7 @@
 from Crash import *
 
 
-class Scroll(Component):
+class TitleScroll(Component):
     def __init__(self):
         self.gameObject = None
 

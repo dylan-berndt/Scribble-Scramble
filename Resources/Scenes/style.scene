@@ -1,8 +1,8 @@
 from Crash import *
-from Resources.Scripts.UI.character import CharacterManager
-from Resources.Scripts.UI.scenefade import transition_scene
-from Resources.Scripts.Effects.water import Water
-from Resources.Scripts.Effects.vines import Vines
+from Resources import CharacterManager
+from Resources import transition_scene
+from Resources import Water
+from Resources import Vines
 
 
 camera = GameObject(Vector2(0, 0), "camera")

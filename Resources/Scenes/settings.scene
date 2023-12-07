@@ -1,5 +1,5 @@
 from Crash import *
-from Resources.Scripts.UI.scenefade import SceneFade, transition_scene
+from Resources import SceneFade, transition_scene
 
 # confetti_shader = Shader("Shaders/", "pixelator")
 # confetti_sprite = Sprite("Bad Confetti/0001.png", program=confetti_shader)

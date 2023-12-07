@@ -9,6 +9,18 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 backend = default_backend()
 iterations = 100_000
 
+"""
+
+
+    I did not write this code because I understand that cryptography concerns
+    should be left to those who know what they're doing, and although I have
+    taken cybersecurity courses, I trust professionals more than myself.
+
+    
+
+
+"""
+
 
 def _derive_key(password: bytes, salt: bytes, iterations: int = iterations) -> bytes:
     """Derive a secret key from a given password and salt"""

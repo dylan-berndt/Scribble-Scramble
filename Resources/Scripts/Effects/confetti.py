@@ -7,7 +7,7 @@ class ConfettiGroup(pyglet.graphics.Group):
         self.program = Shader("Shaders/Bad Confetti", sprite_vert=False)
         self._time = 0
 
-        color_file = open(os.path.join(Resources.resourcePath, "resurrect-64.gpl"), "r")
+        color_file = open(os.path.join(Objects.resourcePath, "resurrect-64.gpl"), "r")
         colors = []
         for line in color_file.readlines()[1:]:
             if line[0] == "#":

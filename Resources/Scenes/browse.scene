@@ -1,5 +1,5 @@
 from Crash import *
-from Resources.Scripts.UI.scenefade import transition_scene
+from Resources import transition_scene
 
 BROWSER = "localhost"
 

@@ -69,7 +69,7 @@ class Client(Component):
             self.send_points()
 
     def connect(self):
-        if Resources.sceneName != "Scenes/play":
+        if Objects.sceneName != "Scenes/play":
             self.keep_trying = False
             return
         self.SESSION = GameObject.find("password_box").getComponent(TextWidget).document.text
@@ -142,7 +142,7 @@ class Client(Component):
 
     def check_socket(self):
         if not self.connected:
-            if Resources.sceneName == "Scenes/lobby" or Resources.sceneName == "Scenes/game":
+            if Objects.sceneName == "Scenes/lobby" or Objects.sceneName == "Scenes/game":
                 loadScene("Scenes/play")
         return self.connected
 

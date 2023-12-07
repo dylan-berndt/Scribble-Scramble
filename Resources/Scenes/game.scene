@@ -1,6 +1,6 @@
 from Crash import *
-from Resources.Scripts.UI.canvas import Canvas
-from Resources.Scripts.slice import SlicedSprite
+from Resources import Canvas
+from Resources import SlicedSprite
 
 camera = GameObject(Vector2(0, 0), "camera")
 camera.addComponent(Camera())
@@ -28,7 +28,7 @@ color_center = Vector2(10, -2.75+0.125+0.125/2)
 color = GameObject(color_center, "colors")
 color.addComponent(Sprite("Sprites/UI/Buttons/colors.png", group=2))
 
-color_file = open(os.path.join(Resources.resourcePath, "resurrect-64.gpl"), "r")
+color_file = open(os.path.join(Objects.resourcePath, "resurrect-64.gpl"), "r")
 colors = []
 for line in color_file.readlines()[1:]:
     if line[0] == "#":
