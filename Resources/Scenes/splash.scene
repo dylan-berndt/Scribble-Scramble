@@ -1,0 +1,17 @@
+from Crash import *
+from Resources.Scripts.UI.splashfade import SplashFade
+
+camera = GameObject(Vector2(0, 0), "camera")
+camera.addComponent(Camera())
+
+logo = GameObject(Vector2(0, 0), "logo")
+
+sprite = Sprite("Sprites/Logo/logo01.png")
+sprite.scale = 1
+logo_animation = animation_from_folder("Sprites/Logo", sprite, 12)
+logo_animation.loop = False
+animator = Animator({"idle": logo_animation}, "idle", play_on_awake=False)
+
+logo.addComponent(sprite, animator)
+logo.addComponent(SplashFade(sprite, animator))
+

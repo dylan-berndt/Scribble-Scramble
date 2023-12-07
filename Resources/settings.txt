@@ -1,0 +1,20 @@
+{
+    "game": {
+        "background": {
+            "1": "yellow",
+            "2": "orange"
+        },
+        "character": {
+            "color": 3,
+            "face": 6,
+            "hat": 25
+        }
+    },
+    "audio": {
+        "master_volume": 100,
+        "music": "bumpy"
+    },
+    "video": {
+        "fullscreen": false
+    }
+}

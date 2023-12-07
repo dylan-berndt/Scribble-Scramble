@@ -1,0 +1,30 @@
+from Crash import *
+
+menu_button = GameObject(Vector2(-9.5, -4.5), "menu_button")
+menu_button.addComponent(Button(Vector2(2, 1), Game.client.disconnect))
+menu_button.addComponent(Sprite("Sprites/UI/Buttons/exit.png"))
+
+chat_style = dict(font_name="Poco", font_size=24,
+                  color=(0, 0, 0, 255), background_color=(0, 0, 0, 0),
+                  leading=-12, indent=0)
+
+t_batch, t_group = Screen.get_render_set("default", 1)
+
+chat_field = GameObject(Vector2(6, -1.5), "chat_field")
+chat_field.addComponent(TextWidget("", chat_style, width=Screen.unit * 10, editable=True,
+                                   group=t_group, command=Game.client.send_chat))
+chat_field.addComponent(Sprite("Sprites/UI/Chat/wide_box.png"))
+
+chat_log = GameObject(Vector2(6, 2.5), "chat_log")
+chat_log.addComponent(TextWidget("", chat_style, width=Screen.unit * 10, group=t_group,
+                                 multiline=True, height=int(Screen.unit * 6.825)))
+chat_log.addComponent(Sprite("Sprites/UI/Chat/big_box.png"))
+
+
+menu_button = GameObject(Vector2(-9.5, -1.5), "menu_button")
+menu_button.addComponent(Button(Vector2(2, 1), loadScene, "Scenes/game"))
+menu_button.addComponent(Sprite("Sprites/UI/Buttons/exit.png"))
+
+
+
+

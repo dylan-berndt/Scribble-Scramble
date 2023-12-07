@@ -1,0 +1,9 @@
+alligator, anteater, antelope, armadillo, baboon, badger, bat, bear, beaver,
+bee, bison, bear, whale, boar, buffalo, butterfly, camel, capybara, caribou, cat,
+cheetah, chimpanzee, chinchilla, chipmunk, cobra, cockroach, cougar, cow, coyote,
+crab, crocodile, crow, deer, dolphin, donkey, duck, eagle, elephant, falcon,
+ferret, fish, flamingo, fox, frog, gazelle, giraffe, gorilla, hamster, hedgehog,
+hippo, horse, hyena, iguana, jaguar, kangaroo, koala, lemur, leopard, lion, llama,
+lobster, mole, monkey, moose, goat, mouse, orangutan, ostrich, otter, owl, panda,
+panther, parrot, peacock, pelican, penguin, pig, porcupine, rabbit, raccoon, rat,
+rhino, seal, shark, sheep, skunk, sloth, snail, snake, spider, squirrel, tiger

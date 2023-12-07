@@ -1,0 +1,11 @@
+alarm clock, backpack, band aid, baseball bat, bicycle, book, bottle opener,
+camera, candle, car keys, cellphone, chalkboard, chess, mug, compass, mouse,
+condom, pot, credit card, cutting board, dart board, lamp, door, straw, razor,
+toothbrush, envelope, eraser, glasses, fire extinguisher, flashlight, flip flops,
+shoes, football, fork, pen, frisbee, gloves, controller, globe, guitar, brush,
+hammock, headphones, highlighter, spoon, jacket, jar, jump rope, keychain, kite,
+scale, knife, laptop, laundry detergent, lava lamp, chapstick, lock, luggage,
+magazine, tape, matches, microphone, mirror, mouse pad, nail clippers,
+newspaper, notebook, oven mitts, paint brush, paper clip, pencil, painting, pillow,
+ping pong, poker cards, camera, puzzle, rubber band, rubber duck, scissors,
+screwdriver, skateboard, stapler, sunglasses, tape measure

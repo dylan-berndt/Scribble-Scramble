@@ -1,0 +1,57 @@
+from Crash import *
+from Resources.Scripts.UI.scenefade import SceneFade, transition_scene
+
+# confetti_shader = Shader("Shaders/", "pixelator")
+# confetti_sprite = Sprite("Bad Confetti/0001.png", program=confetti_shader)
+# confetti_animation = animation_from_folder("Bad Confetti", confetti_sprite, 24)
+# confetti = GameObject(Vector2(0, 0), "confetti")
+# confetti.addComponent(confetti_sprite)
+# confetti_animator = Animator({"idle": confetti_animation}, "idle")
+# confetti.addComponent(confetti_animator)
+
+camera = GameObject(Vector2(0, 0), "camera")
+camera.addComponent(Camera())
+
+settings_title = GameObject(Vector2(-3.5 - 1/16, 4.5 + 1/16), "settings_title")
+settings_title.addComponent(Sprite("Sprites/UI/settings_title.png"))
+
+label_style = dict(font_name="GrapeSoda", font_size=48,
+                   color=(255, 255, 255, 255), background_color=(0, 0, 0, 0),
+                   justify="right")
+input_style = dict(font_name="GrapeSoda", font_size=48,
+                   color=(0, 0, 0, 255), background_color=(0, 0, 0, 0))
+outline_style = dict(font_name="GrapePopsicle", font_size=48,
+                     color=(0, 0, 0, 255), background_color=(0, 0, 0, 0),
+                     justify="right")
+
+menu_button = GameObject(Vector2(-9.5, -4.5), "menu_button")
+menu_button.addComponent(Button(Vector2(4, 2), transition_scene, "Scenes/menu"))
+menu_button.addComponent(Sprite("Sprites/UI/Buttons/menu.png"))
+
+scroll_batch, scroll_group = Screen.get_render_set("scroll", "2")
+
+scissor_area = ScissorGroup(Vector2(0, -1.5), Vector2(32, 7), scroll_group)
+settings = GameObject(Vector2(0, 0), "settings")
+scroll = Scroll(scissor_area, dpi=24, lower_bound=Vector2(0, -360), upper_bound=Vector2(0, -48))
+settings.addComponent(scroll)
+
+text_batch, text_group = Screen.get_render_set("scroll", "21", parent=scissor_area)
+outline_batch, outline_group = Screen.get_render_set("scroll", "22", parent=scissor_area)
+
+game_sep = GameObject(Vector2(3, 0), "game_sep")
+game_sep.addComponent(Sprite("Sprites/UI/Settings/game-sep.png", batch="scroll", group=22))
+
+video_sep = GameObject(Vector2(3, -4), "video_sep")
+video_sep.addComponent(Sprite("Sprites/UI/Settings/video-sep.png", batch="scroll", group=22))
+
+audio_sep = GameObject(Vector2(3, -8), "audio_sep")
+audio_sep.addComponent(Sprite("Sprites/UI/Settings/audio-sep.png", batch="scroll", group=22))
+
+top = GameObject(Vector2(2, 2), "settings_top")
+top.addComponent(Sprite("Sprites/UI/Settings/settings-top.png", batch="scroll", group=23))
+
+bottom = GameObject(Vector2(2, -5), "settings_bottom")
+bottom.addComponent(Sprite("Sprites/UI/Settings/settings-top.png", batch="scroll", group=23))
+bottom.transform.rotation = 180
+
+

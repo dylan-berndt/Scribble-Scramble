@@ -1,0 +1,113 @@
+from Crash import *
+from Resources.Scripts.UI.background import Scroll, Swap
+from Resources.Scripts.title import Title
+from Resources.Scripts.UI.scenefade import SceneFade, transition_scene
+from Resources.Scripts.Effects.confetti import Confetti, Confetti1
+import os
+import sys
+from steamworks import STEAMWORKS
+
+if sys.version_info >= (3, 8):
+    os.add_dll_directory(os.getcwd())
+
+# HOST = '173.19.48.53'
+HOST = '156.146.123.104'
+PORT = 13290
+SESSION = None
+
+transition = GameObject(Vector2(0, 0), "transition")
+shader = Shader("Shaders/Transition", sprite_vert=True)
+sprite = Sprite("Sprites/Sprite-0001.png", program=shader, group=100)
+transition.addComponent(sprite)
+transition.addComponent(SceneFade(shader, sprite))
+transition.keep = True
+
+# cb, cg = Screen.get_render_set("default", 98)
+# confetti = GameObject(Vector2(0, 0), "confetti")
+# confetti_manager = Confetti1(cb, 98, None, 200)
+# confetti.addComponent(confetti_manager)
+
+# confetti = GameObject(Vector2(0, 0), "confetti")
+# confetti_shader = Shader("Shaders/Confetti", sprite_vert=True)
+# confetti_sprite = Sprite("Sprites/Sprite-0001.png", program=confetti_shader)
+# confetti_manager = Confetti(confetti_shader)
+# confetti.addComponent(confetti_manager, confetti_sprite)
+
+# sliced = GameObject(Vector2(0, 0), "sliced")
+# sliced_shader = Shader("Shaders/Slicer", sprite_vert=False)
+# sliced_sprite = Sprite("Sprites/Crash Engine.png", program=sliced_shader, group=98)
+# sliced_shader["bounds"] = [16, 16, 16, 16]
+# sliced_shader["mode"] = 0
+# sliced_sprite.scale = 4
+# sliced.addComponent(sliced_sprite)
+
+camera = GameObject(Vector2(0, 0), "camera")
+camera.addComponent(Camera())
+
+background = GameObject(Vector2(0, 0), "background")
+background.addComponent(Rigidbody(velocity=Vector2(-0.6, -0.6)))
+background.addComponent(Scroll())
+
+b1c = Game.settings["game"]["background"]["1"]
+b2c = Game.settings["game"]["background"]["2"]
+
+if "steam" in Editor.flags:
+    Game.steam = STEAMWORKS()
+    Game.steam.initialize()
+
+if GameObject.find("back1") is None:
+    # network = GameObject(Vector2(0, 0), "client_interface")
+    # client_interface = Client(HOST, PORT)
+    # network.addComponent(client_interface)
+    # Game.client = client_interface
+
+    white = Sprite("Sprites/UI/Background/" + b1c + ".png", group=-10)
+    back1 = GameObject(Vector2(0, 0), "back1")
+    back1.addComponent(white)
+    white.tile(Vector2(32, 32))
+    back1.addComponent(Swap(white, b1c))
+
+    black = Sprite("Sprites/UI/Background/" + b2c + ".png", group=-10)
+    back2 = GameObject(Vector2(1, 0), "back2")
+    back2.addComponent(black)
+    black.tile(Vector2(32, 32))
+    back2.addComponent(Swap(black, b2c))
+
+    background.transform.addChild(back1.transform)
+    background.transform.addChild(back2.transform)
+
+    background.keep = True
+    back1.keep = True
+    back2.keep = True
+    # network.keepOnLoad = True
+
+buttons = GameObject(Vector2(0, 0), "buttons")
+
+play_button = GameObject(Vector2(0, 2), "play_button")
+play_button.addComponent(Button(Vector2(4, 2), transition_scene, "Scenes/style"))
+play_button.addComponent(Sprite("Sprites/UI/Buttons/play.png", group=0))
+
+settings_button = GameObject(Vector2(0, 0), "settings_button")
+settings_button.addComponent(Button(Vector2(4, 2), transition_scene, "Scenes/settings"))
+settings_button.addComponent(Sprite("Sprites/UI/Buttons/settings.png", group=0))
+
+quit_button = GameObject(Vector2(0, -2), "quit_button")
+quit_button.addComponent(Button(Vector2(4, 2), Screen.canvas.close))
+quit_button.addComponent(Sprite("Sprites/UI/Buttons/quit.png", group=0))
+
+Game.open = True
+
+buttons.transform.addChild(play_button.transform)
+buttons.transform.addChild(settings_button.transform)
+buttons.transform.addChild(quit_button.transform)
+
+buttons.transform.position = Vector2(-9.5, -2.5)
+
+title = GameObject(Vector2(0, 0), "title")
+title.addComponent(Sprite("Sprites/UI/title.png"))
+t = Title()
+title.addComponent(t)
+
+b_button = GameObject(Vector2(6.8, 1.5), "b_button").addComponent(Button(Vector2(2, 2.5), t.b))
+instantiate(b_button, name="b_left", position=Vector2(-3, 4.5))
+instantiate(b_button, name="b_right", position=Vector2(-0.7, 4.5))

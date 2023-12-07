@@ -1,0 +1,9 @@
+/venv
+venv
+steam_appid.txt
+steam_api64.dll
+steam_api64.lib
+SteamworksPy64.dll
+__pycache__
+Resources/SteamworksPy64.dll
+Resources/Sprites/UI/test.png

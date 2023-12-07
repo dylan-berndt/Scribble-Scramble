@@ -1,0 +1,9 @@
+excitement, chef, statue of liberty, doctor, great wall of china, architect,
+eiffel tower, love, pilot, niagara falls, fear, firefighter, mount everest, 
+joy, musician, colosseum, envy, lawyer, sydney opera house, sadness, actor, 
+taj mahal, hope, teacher, golden gate bridge, pride, soldier, anger, policeman,
+farmer, stonehenge, photographer, burj khalifa, disgust, surprise, magician, 
+determination, athlete, leaning tower of pisa, frustration, mechanic, sphinx,
+nurse, machu picchu, euphoria, dancer, grand canyon, embarrassment, barber,
+baker, mount rushmore, veterinarian, engineer, white house, explorer, sistine chapel, writer, waiter, comedian, personal trainer, berlin wall, flight attendant,
+tour guide

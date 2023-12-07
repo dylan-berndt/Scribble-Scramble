@@ -1,0 +1,98 @@
+from Crash import *
+from Resources.Scripts.UI.character import CharacterManager
+from Resources.Scripts.UI.scenefade import transition_scene
+from Resources.Scripts.Effects.water import Water
+from Resources.Scripts.Effects.vines import Vines
+
+
+camera = GameObject(Vector2(0, 0), "camera")
+camera.addComponent(Camera())
+
+style_title = GameObject(Vector2(-7.5 + 3/4, 4.5), "style_title")
+style_title.addComponent(Sprite("Sprites/UI/style_title.png", group=6))
+
+menu_button = GameObject(Vector2(-9.5, -4.5), "menu_button")
+menu_button.addComponent(Button(Vector2(4, 2), transition_scene, "Scenes/menu"))
+menu_button.addComponent(Sprite("Sprites/UI/Buttons/menu.png", group=10))
+
+next_button = GameObject(Vector2(9.5, -4.5), "next_button")
+next_button.addComponent(Button(Vector2(4, 2), transition_scene, "Scenes/browse"))
+next_button.addComponent(Sprite("Sprites/UI/Buttons/next.png", group=10))
+
+pipes = GameObject(Vector2(0, 0), "pipes")
+pipes.addComponent(Sprite("Sprites/Characters/pipes.png"))
+character = CharacterManager()
+pipes.addComponent(character)
+
+back_pipes = GameObject(Vector2(0, 0), "back_pipes")
+back_pipes.addComponent(Sprite("Sprites/Characters/pipes_back.png", group=-2))
+
+# grass = GameObject(Vector2(0, 0), "grass")
+# grass.addComponent(Sprite("Sprites/Characters/grass.png", group=10))
+
+water = GameObject(Vector2(0, 0), "water")
+water_sprite = Sprite("Sprites/Sprite-0001.png", program=Shader("Shaders/Water", sprite_vert=True), group=99)
+water.addComponent(water_sprite, Water())
+
+layers = [10, -1, -3]
+for i in range(3):
+    vines = GameObject(Vector2(0, 0), "vines" + str(i + 1))
+    name = "Sprites/Characters/Vines/vines" + str(i + 1) + ".png"
+    vines_sprite = Sprite(name, program=Shader("Shaders/Wind", sprite_vert=True), group=layers[i])
+    vines.addComponent(vines_sprite, Vines())
+
+# water = GameObject(Vector2(0, 0), "water")
+# water_sprite = Sprite("Sprites/Characters/Water/water1.png", group=-1)
+# water_animation = animation_from_folder("Sprites/Characters/Water", water_sprite, 12)
+# water_animator = Animator({"idle": water_animation}, "idle")
+# water.addComponent(water_sprite, water_animator)
+
+guide = GameObject(Vector2(0, 0), "guide")
+guide.addComponent(Sprite("Sprites/Characters/guide.png", group=3))
+positions = [Vector2(-4, 0), Vector2(-10.5, -1.5), Vector2(2.25, 2.75), Vector2(6.25, 0), Vector2(11.25, 1.5)]
+functions = [character.hat_right, character.hat_left, character.color, character.face_left, character.face_right]
+
+for i in range(5):
+    pos = positions[i]
+    f = functions[i]
+    button = GameObject(pos, "thing_button" + str(i)).addComponent(Button(Vector2(1, 1), f))
+
+
+flourish = GameObject(Vector2(0, 0), "flourish")
+flourish.addComponent(Sprite("Sprites/Characters/flourish.png", group=4))
+
+text_batch, text_group = Screen.get_render_set("default", "2")
+outline_batch, outline_group = Screen.get_render_set("default", "1")
+
+label_style = dict(font_name="GrapeSoda", font_size=48,
+                   color=(255, 255, 255, 255), background_color=(0, 0, 0, 0),
+                   justify="right")
+input_style = dict(font_name="GrapeSoda", font_size=48,
+                   color=(0, 0, 0, 255), background_color=(0, 0, 0, 0))
+outline_style = dict(font_name="GrapePopsicle", font_size=48,
+                     color=(0, 0, 0, 255), background_color=(0, 0, 0, 0),
+                     justify="right")
+
+# Game.client.keep_trying = False
+#
+# password_box = GameObject(Vector2(8.5, -4.5), "password_box")
+# password_box.addComponent(TextWidget("", input_style, int(6 * Screen.unit),
+#                                      batch=text_batch, group=text_group,
+#                                      command=Game.client.connect, editable=True,
+#                                      hint="HOST NAME"))
+# password_box.addComponent(NewSprite("Sprites/UI/textbox.png"))
+#
+# host_label = GameObject(Vector2(9.5, 5), "host_label")
+# host_label.addComponent(TextWidget("HOSTING: ", label_style, int(6 * Screen.unit),
+#                                    batch=text_batch, group=text_group))
+# host_outline = GameObject(Vector2(9.5, 5)-Vector2(1/16, -1/16), "host_outline")
+# host_outline.addComponent(TextWidget("HOSTING: ", outline_style, int(6 * Screen.unit),
+#                                      batch=outline_batch, group=outline_group))
+#
+# host_check = GameObject(Vector2(11, 5), "host_check")
+# host_check.addComponent(NewSprite("Sprites/UI/Buttons/checkbox.png"))
+# toggle = Checkbox(Sprite("Sprites/UI/Buttons/checkbox.png"), Sprite("Sprites/UI/Buttons/check.png"))
+# host_check.addComponent(toggle)
+# host_check.addComponent(Button(Vector2(1, 1), toggle.toggle))
+# toggle.toggle()
+# toggle.toggle()

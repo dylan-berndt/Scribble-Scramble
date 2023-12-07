@@ -1,0 +1,9 @@
+cheese, burger, tomato, eggplant, apple, pie, soda, fries, bacon, bagel,
+banana, blueberries, bread, broccoli, burrito, carrot, cauliflower, cherry,
+chicken, chocolate, coconut, coffee, corn, cake, croissant, cucumber, donut,
+egg, spaghetti, fish, garlic bread, grapes, salad, grilled cheese, guacamole,
+hash browns, hot dog, hummus, ice cream, jalapeno, lasagna, lemonade, lobster,
+mac and cheese, meatball, mushroom, nachos, oatmeal, orange, pancakes, pizza,
+popcorn, pork chop, chips, potato, ravioli, s'more, sausage, shrimp, smoothie,
+spinach, steak, strawberry, sushi, taco, tater tots, soup, sandwich, waffles,
+watermelon, wine, yogurt, mashed potatoes
