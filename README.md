@@ -1,4 +1,4 @@
-<h1>SCRIBBLE SCRAMBLE</h1>
+<h1>Scribble Scramble</h1>
 
 I've been working on this on the backburner for a few months now, and it is a multiplayer drawing game designed in Python with Pyglet and OpenGL. 
 I myself designed both the front and back end with a distributed server architecture and custom data distribution functions along with graphics programming involving shaders and framebuffers. 
